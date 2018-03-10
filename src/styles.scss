@@ -1,0 +1,15 @@
+// theme
+@import '~@angular/material/_theming';
+// icons
+@import "~material-design-icons/iconfont/material-icons.css";
+// normalize
+@import '~normalize.css/normalize.css';
+
+@include mat-core();
+
+$primary: mat-palette($mat-deep-purple);
+$accent:  mat-palette($mat-amber, A200, A100, A400);
+
+$theme: mat-light-theme($primary, $accent);
+
+@include angular-material-theme($theme);
