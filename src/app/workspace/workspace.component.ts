@@ -9,18 +9,17 @@ import { DeviceService } from '../devices/shared/device.service';
   providers: [DeviceService]
 })
 export class WorkspaceComponent implements OnInit {
+  constructor() {}
 
   private devices: Device[] = [];
 
-  constructor(private deviceService: DeviceService) {}
-
-  private initDevices() {
-    this.deviceService.getDevices()
-      .then(devices => this.devices = devices);
-    return this.devices;
-  }
-
   ngOnInit() {
     this.initDevices();
+  }
+
+  public initDevices(): Device[] {
+    DeviceService.getDevices()
+      .then(devices => this.devices = devices);
+    return this.devices;
   }
 }
