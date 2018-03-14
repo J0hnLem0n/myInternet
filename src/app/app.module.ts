@@ -6,14 +6,14 @@ import {MaterialModule} from './modules/material/material.module';
 
 import { AppComponent } from './app.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
-import { LeftMenuComponent } from './workspace/left-menu/left-menu.component';
+import { DeviceDragDirective } from './devices/shared/directives/device-drag.directive';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     WorkspaceComponent,
-    LeftMenuComponent
+    DeviceDragDirective,
   ],
   imports: [
     BrowserModule,
