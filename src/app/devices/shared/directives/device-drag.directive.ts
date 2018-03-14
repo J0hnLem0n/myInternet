@@ -5,17 +5,16 @@ import { MoveObjectService } from '../../move-objects/move-object.service';
   selector: '[appDeviceDrag]',
   providers: [MoveObjectService]
 })
+
 export class DeviceDragDirective {
   constructor(private moveObjectService: MoveObjectService) {}
 
-  private moveObject: HTMLElement;
-
   @HostListener('mousedown') onMouseDown() {
-    this.moveObject = this.moveObjectService.create();
+    this.moveObjectService.createObject();
   }
   @HostListener('mouseup') onMouseUp() {
-    this.moveObjectService.remove();
-    console.log(this.moveObject);
+    this.moveObjectService.removeObject();
+    console.log(this.moveObjectService);
   }
 
 }
