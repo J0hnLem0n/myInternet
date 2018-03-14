@@ -19,7 +19,7 @@ export class MoveObjectService {
         document.body.appendChild(this.object);
         return this.object;
     }
-    // public remove() {
-    //     this.object.remove();
-    // }
+    public remove() {
+        this.object.remove();
+    }
 }

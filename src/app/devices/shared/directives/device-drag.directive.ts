@@ -14,7 +14,7 @@ export class DeviceDragDirective {
     this.moveObject = this.moveObjectService.create();
   }
   @HostListener('mouseup') onMouseUp() {
-    this.moveObject.remove();
+    this.moveObjectService.remove();
     console.log(this.moveObject);
   }
 
