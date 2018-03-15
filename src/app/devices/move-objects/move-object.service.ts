@@ -4,26 +4,26 @@ import { Injectable } from '@angular/core';
 
 export class MoveObjectService {
   private object: HTMLObjectElement;
+  private svg: SVGElement;
 
   public createObject(event) {
-    let svgDocument, svg;
-    const self = this;
-
     this.object = document.createElement('object');
     this.object.style.position = 'absolute';
     this.object.style.zIndex = '1000';
     this.object.data = 'assets/img/material/ic_add_a_photo_24px.svg';
+
     document.body.appendChild(this.object);
 
-    document.onmousemove = function(e) {
-      self.moveAt(e);
-    };
-
-    this.object.addEventListener('load', function () {
-      svgDocument = this.contentDocument;
-      svg = svgDocument.querySelector('svg');
+    document.addEventListener('mousemove', (e) => {
+      this.moveAt(e);
     });
 
+    this.object.addEventListener('load',  () => {
+      this.svg = this.object.contentDocument.querySelector('svg');
+      this.svg.addEventListener('mouseup',  () => {
+        this.removeObject();
+      });
+    });
     this.moveAt(event);
   }
 
