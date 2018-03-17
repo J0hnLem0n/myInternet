@@ -10,7 +10,6 @@ export class WorkspaceDirective implements OnInit {
   constructor(private d3WorkspaceService: D3WorkspaceService) { }
 
   ngOnInit() {
-    this.d3WorkspaceService.initWorkspace()
-      .drawLine();
+    this.d3WorkspaceService.initWorkspace();
   }
 }

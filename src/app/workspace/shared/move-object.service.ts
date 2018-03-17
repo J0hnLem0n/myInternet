@@ -1,14 +1,19 @@
 import { Injectable } from '@angular/core';
+import { D3WorkspaceService } from './d3-workspace.service';
 
 @Injectable()
 
 export class MoveObjectService {
+  constructor(private d3WorkspaceService: D3WorkspaceService) {}
+
   private object: HTMLObjectElement;
   private svg: SVGElement;
 
-  public createObject(event) {
-    const imgSrc = MoveObjectService.getImageForObject(event.target.innerHTML);
+  public createObject(event: MouseEvent): void {
+    const el = <HTMLSelectElement>event.target;
+    const imgSrc = MoveObjectService.getImageForObject(el.innerText);
     if (imgSrc == null) { return; }
+
     this.object = document.createElement('object');
     this.object.style.position = 'absolute';
     this.object.style.zIndex = '1000';
@@ -20,16 +25,23 @@ export class MoveObjectService {
     this.object.addEventListener('load',  () => {
       this.svg = this.object.contentDocument.querySelector('svg');
       this.svg.addEventListener('mouseup',  () => {
+
+        this.d3WorkspaceService.initWorkspace()
+          .drawLine();
+
+        console.log('remove');
+
         this.removeObject();
       });
     });
     this.moveAt(event);
   }
 
-  public removeObject() {
+  public removeObject(): void {
     this.object.remove();
   }
-  /**TODO: Перенести в icon service(создать)*/
+  /**TODO: Перенести в icon service(создать)
+   * Объединить иконки в группы что бы сократить пути*/
   static getImageForObject(iconName: string): string {
     let pathName;
     switch (iconName) {
@@ -45,7 +57,7 @@ export class MoveObjectService {
     return pathName;
   }
 
-  private moveAt(event) {
+  private moveAt(event): void {
     this.object.style.left = event.pageX - this.object.offsetWidth / 2 + 'px';
     this.object.style.top = event.pageY - this.object.offsetHeight / 2 + 'px';
   }

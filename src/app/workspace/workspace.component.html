@@ -1,5 +1,5 @@
 <mat-sidenav-container class="int-sidenav-container">
-  <mat-sidenav #sidenav mode="side" class="int-sidenav-container__left-menu">
+  <mat-sidenav #sidenav class="int-sidenav-container__left-menu" mode="side">
     <mat-list>
       <mat-list-item *ngFor="let device of devices" appDeviceDrag>
         <mat-icon matTooltip="{{device.name}}">{{device.icon}}</mat-icon>
@@ -9,7 +9,7 @@
   <mat-sidenav-content>
     <div class="int-sidenav-container__left-menu">
       <button mat-icon-button (click)="sidenav.toggle()">
-        <mat-icon>view_headline</mat-icon>
+        <mat-icon class="int-sidenav-container__menu-icon">more_vert</mat-icon>
       </button>
     </div>
     <div appWorkspace>
