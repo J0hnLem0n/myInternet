@@ -11,7 +11,6 @@ export class MoveObjectService {
     this.object.style.position = 'absolute';
     this.object.style.zIndex = '1000';
     this.object.data = 'assets/img/material/ic_add_a_photo_24px.svg';
-
     document.body.appendChild(this.object);
 
     document.addEventListener('mousemove', (e) => {

@@ -7,6 +7,7 @@ import {MaterialModule} from './modules/material/material.module';
 import { AppComponent } from './app.component';
 import { WorkspaceComponent } from './workspace/workspace.component';
 import { DeviceDragDirective } from './devices/shared/directives/device-drag.directive';
+import { WorkspaceDirective } from './workspace/shared/directives/workspace.directive';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { DeviceDragDirective } from './devices/shared/directives/device-drag.dir
     AppComponent,
     WorkspaceComponent,
     DeviceDragDirective,
+    WorkspaceDirective,
   ],
   imports: [
     BrowserModule,
