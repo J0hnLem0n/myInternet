@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Device } from '../devices/shared/device.model';
-import { DeviceService } from '../devices/shared/device.service';
+import { Device } from './devices/shared/device.model';
+import { DeviceService } from './devices/shared/device.service';
 
 @Component({
   selector: 'app-workspace',
@@ -9,9 +9,7 @@ import { DeviceService } from '../devices/shared/device.service';
   providers: [DeviceService]
 })
 export class WorkspaceComponent implements OnInit {
-  constructor() {}
-
-  private devices: Device[] = [];
+  public devices: Device[] = [];
 
   ngOnInit() {
     this.initDevices();

@@ -1,15 +1,16 @@
 import { Directive, OnInit } from '@angular/core';
-import * as d3 from 'd3';
+import { D3WorkspaceService } from '../d3-workspace.service';
 
 @Directive({
-  selector: '[appWorkspace]'
+  selector: '[appWorkspace]',
+  providers: [D3WorkspaceService]
 })
-export class WorkspaceDirective {
+export class WorkspaceDirective implements OnInit {
 
-  constructor() { }
+  constructor(private d3WorkspaceService: D3WorkspaceService) { }
+
   ngOnInit() {
-
+    this.d3WorkspaceService.initWorkspace()
+      .drawLine();
   }
-
-
 }
