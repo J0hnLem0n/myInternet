@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class D3WorkspaceService {
-  public svg: HTMLElement;
+  public svg: any;
   constructor() {
     this.svg = d3.select('#chart').append('svg'
   ); }
