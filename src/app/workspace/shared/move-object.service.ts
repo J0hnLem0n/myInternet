@@ -39,7 +39,7 @@ export class MoveObjectService {
   }
 
   /**TODO: Перенести в icon service(создать)
-   * Объединить иконки в группы что бы сократить пути*/
+   * TODO: Объединить иконки в группы что бы сократить пути*/
   static getImageForObject(iconName: string): string {
     let pathName;
     switch (iconName) {
