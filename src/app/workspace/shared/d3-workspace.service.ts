@@ -6,6 +6,7 @@ export class D3WorkspaceService {
   private svg;
 
   public initWorkspace(): D3WorkspaceService {
+    /**TODO: отвязаться от ид #workspace */
     this.svg = d3.select('#workspace').append('svg');
     const width = '100%';
     const height = '100%';
@@ -15,8 +16,7 @@ export class D3WorkspaceService {
   }
 
   public addDevice(obj: HTMLObjectElement): D3WorkspaceService {
-    console.dir(obj);
-    const imgSrc: string = obj.data;
+    const imgSrc = obj.data;
     const imgSize = 32;
     /**TODO: Проработать точность координат*/
     const screenX = parseInt(obj.style.left, 10) - (imgSize + (24 * 2));
