@@ -3,8 +3,7 @@ import * as d3 from 'd3';
 
 @Injectable()
 export class D3WorkspaceService {
-  public svg;
-  constructor() {}
+  private svg;
 
   public initWorkspace(): D3WorkspaceService {
     this.svg = d3.select('#chart').append('svg');
