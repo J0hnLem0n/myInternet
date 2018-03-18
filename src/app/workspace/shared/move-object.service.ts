@@ -24,13 +24,10 @@ export class MoveObjectService {
     });
     this.object.addEventListener('load',  () => {
       this.svg = this.object.contentDocument.querySelector('svg');
+
+      /**TODO: Пофиксить. Срабатывает на path и на svg*/
       this.svg.addEventListener('mouseup',  () => {
-
-        this.d3WorkspaceService.initWorkspace()
-          .drawLine();
-
-        console.log('remove');
-
+        this.d3WorkspaceService.addDevice(this.object);
         this.removeObject();
       });
     });
@@ -40,6 +37,7 @@ export class MoveObjectService {
   public removeObject(): void {
     this.object.remove();
   }
+
   /**TODO: Перенести в icon service(создать)
    * Объединить иконки в группы что бы сократить пути*/
   static getImageForObject(iconName: string): string {

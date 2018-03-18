@@ -14,14 +14,18 @@ export class D3WorkspaceService {
       .attr('width', width);
     return this;
   }
-  public drawLine(): D3WorkspaceService {
-    this.svg.append('line')
-      .style('stroke', 'gray')
-      .style('stroke-width', '2')
-      .attr('x1', 20)
-      .attr('y1', 30)
-      .attr('x2', 300)
-      .attr('y2', 300);
+
+  public addDevice(obj: HTMLObjectElement): D3WorkspaceService {
+    const imgSrc: string = obj.data;
+    const imgSize = 64;
+    const screenX = parseInt(obj.style.left, 10) - imgSize;
+    const screenY = parseInt(obj.style.top, 10) - imgSize;
+    this.svg.append('svg:image')
+      .attr('xlink:href', imgSrc)
+      .attr('width', imgSize)
+      .attr('height', imgSize)
+      .attr('x', screenX)
+      .attr('y', screenY);
     return this;
   }
 }

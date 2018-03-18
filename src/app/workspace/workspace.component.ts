@@ -7,13 +7,15 @@ import { D3WorkspaceService } from './shared/d3-workspace.service';
   selector: 'app-workspace',
   templateUrl: './workspace.component.html',
   styleUrls: ['./workspace.component.scss'],
-  providers: [DeviceService, D3WorkspaceService]
+
 })
 export class WorkspaceComponent implements OnInit {
   public devices: Device[] = [];
+  constructor(private d3WorkspaceService: D3WorkspaceService) {}
 
   ngOnInit() {
     this.initDevices();
+    this.d3WorkspaceService.initWorkspace();
   }
 
   public initDevices(): Device[] {
